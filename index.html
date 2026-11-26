@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disadvantages of Smoking and Vaping</title>
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --accent-light: #ff6b81;
+            --gold: #f0a500;
+            --teal: #0f3460;
+            --light: #f5f5f5;
+            --white: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --shadow-hover: 0 20px 50px rgba(0,0,0,0.25);
+            --radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            height: 60px;
+            background: rgba(26, 26, 46, 0.98);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-logo .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--white);
+            background: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 40%, var(--teal) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(233,69,96,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(240,165,0,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(15,52,96,0.2) 0%, transparent 50%);
+        }
+
+        /* Animated smoke particles */
+        .smoke-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .smoke-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            animation: smokeRise linear infinite;
+        }
+
+        @keyframes smokeRise {
+            0% { transform: translateY(100vh) scale(1); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.1; }
+            100% { transform: translateY(-100px) scale(3); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(233,69,96,0.2);
+            border: 1px solid rgba(233,69,96,0.4);
+            color: var(--accent-light);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            color: var(--white);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto 36px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .btn {
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(233,69,96,0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(233,69,96,0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .scroll-indicator span::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            animation: scrollDot 2s infinite;
+        }
+
+        @keyframes scrollDot {
+            0% { top: 8px; opacity: 1; }
+            100% { top: 32px; opacity: 0; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== OBJECTIVE & SCOPE ===== */
+        #objective {
+            background: var(--white);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .info-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .info-card p, .info-card ul {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card ul li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .info-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ===== STATISTICS COUNTER ===== */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+            padding: 80px 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-light);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* ===== CONTENT / DISADVANTAGES ===== */
+        #content {
+            background: var(--light);
+        }
+
+        .disadvantage-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+            padding: 40px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .disadvantage-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .disadvantage-block:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .disadvantage-block:nth-child(even) {
+            direction: rtl;
+        }
+
+        .disadvantage-block:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .disadvantage-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .disadvantage-visual {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .disadvantage-visual .visual-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-health { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
+        .visual-finance { background: linear-gradient(135deg, #f0a500, #e67e22); }
+        .visual-community { background: linear-gradient(135deg, #0f3460, #2980b9); }
+
+        .visual-placeholder .visual-emoji {
+            font-size: 5rem;
+            margin-bottom: 12px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .visual-placeholder .visual-label {
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .disadvantage-text .dis-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .disadvantage-text h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .disadvantage-text p {
+            color: var(--text-light);
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #fff3e0, #ffecd2);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 20px;
+        }
+
+        .example-box .example-label {
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .example-box p {
+            color: var(--text);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== INTERACTIVE COST CALCULATOR ===== */
+        .calculator-section {
+            background: var(--white);
+            padding: 80px 20px;
+        }
+
+        .calculator-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary), var(--teal));
+            border-radius: var(--radius);
+            padding: 50px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .calculator-wrapper h3 {
+            color: var(--white);
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .calculator-wrapper .calc-subtitle {
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .slider-group {
+            margin-bottom: 30px;
+        }
+
+        .slider-group label {
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .slider-group label span {
+            color: var(--accent-light);
+            font-weight: 700;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.15);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(233,69,96,0.5);
+        }
+
+        .calc-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .calc-result-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calc-result-item .period {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .calc-result-item .amount {
+            color: var(--accent-light);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .calc-could-buy {
+            margin-top: 24px;
+            background: rgba(240,165,0,0.15);
+            border: 1px solid rgba(240,165,0,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calc-could-buy .label {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .calc-could-buy .items {
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        /* ===== KEY FACTS CAROUSEL ===== */
+        .facts-section {
+            background: var(--light);
+            padding: 80px 20px;
+        }
+
+        .facts-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+
+        .facts-track::-webkit-scrollbar { display: none; }
+
+        .fact-card {
+            min-width: 300px;
+            max-width: 320px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .fact-card .fact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .fact-card h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .fact-card p {
+            color: var(--text-light);
+            font-size: 0.93rem;
+        }
+
+        /* ===== CONCLUSION / CTA ===== */
+        .conclusion-section {
+            background: linear-gradient(135deg, var(--accent) 0%, #c0392b 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .conclusion-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .conclusion-content .conclusion-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+        }
+
+        .conclusion-content h2 {
+            color: var(--white);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .conclusion-content p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            margin-bottom: 14px;
+        }
+
+        .conclusion-content .key-message {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 30px;
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1.15rem;
+        }
+
+        /* ===== QUICK REFERENCE TABLE ===== */
+        .table-section {
+            background: var(--white);
+            padding: 80px 20px;
+        }
+
+        .reference-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .reference-table thead {
+            background: linear-gradient(135deg, var(--primary), var(--teal));
+        }
+
+        .reference-table th {
+            color: var(--white);
+            padding: 18px 24px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .reference-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .reference-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .reference-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ===== SOURCES ===== */
+        .sources-section {
+            background: var(--light);
+            padding: 60px 20px;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .source-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .source-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            color: var(--accent);
+        }
+
+        .source-link .source-icon {
+            font-size: 1.5rem;
+        }
+
+        .source-link .source-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* ===== CONTACT US ===== */
+        #contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--teal) 100%);
+            padding: 100px 20px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header .section-tag {
+            margin-bottom: 16px;
+        }
+
+        .contact-header h2 {
+            color: var(--white);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .contact-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.05rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 24px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-avatar-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .avatar-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(233,69,96,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .contact-avatar-side h3 {
+            color: var(--white);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-avatar-side .role-tag {
+            display: inline-block;
+            background: rgba(233,69,96,0.2);
+            border: 1px solid rgba(233,69,96,0.4);
+            color: var(--accent-light);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-details-side {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            transition: var(--transition);
+        }
+
+        .contact-detail-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+
+        .contact-detail-item .detail-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(233,69,96,0.15);
+            border-radius: 12px;
+        }
+
+        .contact-detail-item .detail-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-detail-item .detail-label {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-detail-item .detail-value {
+            color: var(--white);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0d0d1a;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        footer p span {
+            color: var(--accent);
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(233,69,96,0.4);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+
+            .hamburger { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(26,26,46,0.98);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                gap: 4px;
+                transform: translateY(-120%);
+                transition: var(--transition);
+            }
+
+            .nav-links.open { transform: translateY(0); }
+
+            .disadvantage-block {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+
+            .disadvantage-block:nth-child(even) { direction: ltr; }
+
+            .contact-card {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+
+            .calc-results {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">
+            <span class="logo-icon">🚭</span>
+            <span>SmokeFree</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hero" class="active" data-section="hero">Home</a></li>
+            <li><a href="#objective" data-section="objective">Objective</a></li>
+            <li><a href="#content" data-section="content">Content</a></li>
+            <li><a href="#contact" data-section="contact">Contact Us</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="smoke-container" id="smokeContainer"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🎓 Final Project — Practical IT Skill</div>
+            <h1>Disadvantages of<br><span>Smoking &amp; Vaping</span></h1>
+            <p>An awareness campaign highlighting the real consequences of smoking and vaping — on health, finances, and the people around you.</p>
+            <div class="hero-buttons">
+                <a href="#content" class="btn btn-primary">📖 Explore the Facts</a>
+                <a href="#contact" class="btn btn-secondary">📬 Contact Us</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"><span></span></div>
+    </section>
+
+    <!-- ===== OBJECTIVE & SCOPE ===== -->
+    <section id="objective">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">About This Project</div>
+                <h2>Objective &amp; Scope</h2>
+                <p>Understanding why this awareness matters</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card fade-in">
+                    <div class="icon">🎯</div>
+                    <h3>Objective</h3>
+                    <p>To raise awareness about the disadvantages of smoking and vaping among students and the general public by presenting evidence-based information in an accessible, engaging digital format. This project aims to encourage informed decision-making and promote a healthier lifestyle free from tobacco and vaping products.</p>
+                </div>
+                <div class="info-card fade-in">
+                    <div class="icon">🔭</div>
+                    <h3>Scope</h3>
+                    <ul>
+                        <li>Health risks and addiction from smoking &amp; vaping</li>
+                        <li>Financial burden on individuals and families</li>
+                        <li>Impact on other people and the wider community</li>
+                        <li>Malaysian context with real-world examples</li>
+                        <li>Interactive tools to visualise costs</li>
+                        <li>Credible sources from WHO, CDC, and MOH</li>
+                    </ul>
+                </div>
+                <div class="info-card fade-in">
+                    <div class="icon">📋</div>
+                    <h3>Project Details</h3>
+                    <ul>
+                        <li><strong>Title:</strong> Disadvantages of Smoking and Vaping</li>
+                        <li><strong>Course:</strong> Practical IT Skill</li>
+                        <li><strong>Programme:</strong> DOSH</li>
+                        <li><strong>University:</strong> Cyberjaya College</li>
+                        <li><strong>Student:</strong> Chai Kian Shin</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATISTICS ===== -->
+    <section class="stats-section">
+        <div class="stats-grid fade-in">
+            <div class="stat-item">
+                <div class="stat-number" data-target="8000000">0</div>
+                <div class="stat-label">Deaths per year from tobacco (WHO)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="7000">0</div>
+                <div class="stat-label">Chemicals in cigarette smoke</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="5475">0</div>
+                <div class="stat-label">RM lost per year (at RM15/day)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="1200000">0</div>
+                <div class="stat-label">Deaths from second-hand smoke (WHO)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== UNDERSTANDING SECTION ===== -->
+    <section id="understanding" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Know the Difference</div>
+                <h2>Smoking vs Vaping</h2>
+                <p>Both are harmful — here's how they differ</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card fade-in" style="text-align:center;">
+                    <div class="icon">🚬</div>
+                    <h3>Traditional Cigarettes</h3>
+                    <p>Burns tobacco to produce smoke containing <strong>nicotine, tar, carbon monoxide</strong>, and thousands of other harmful chemicals. Long-term use is strongly linked to cancer, heart disease, and lung disease.</p>
+                </div>
+                <div class="info-card fade-in" style="text-align:center;">
+                    <div class="icon">💨</div>
+                    <h3>Vapes / E-Cigarettes</h3>
+                    <p>Heats a liquid to produce an aerosol — <strong>not harmless water vapour</strong>. May contain nicotine, fine particles, flavouring chemicals, and other substances. The long-term health effects are still being researched.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTENT: 3 DISADVANTAGES ===== -->
+    <section id="content">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">The Three Major Disadvantages</div>
+                <h2>Why You Should Stay Away</h2>
+                <p>Evidence-based reasons to avoid smoking and vaping</p>
+            </div>
+
+            <!-- Disadvantage 1 -->
+            <div class="disadvantage-block" id="dis1">
+                <div class="disadvantage-visual">
+                    <div class="visual-placeholder visual-health">
+                        <span class="visual-emoji">🫁</span>
+                        <span class="visual-label">Health &amp; Addiction</span>
+                    </div>
+                </div>
+                <div class="disadvantage-text">
+                    <div class="dis-number">1</div>
+                    <h3>Damage to Health &amp; Risk of Addiction</h3>
+                    <p>Cigarette smoking is a major cause of preventable disease. Tobacco smoke contains thousands of chemicals that can damage body cells. Long-term smoking increases the risk of <strong>lung cancer, heart disease, stroke, and chronic obstructive pulmonary disease (COPD)</strong>.</p>
+                    <p>Vaping is not risk-free either. Many vape liquids contain <strong>nicotine</strong>, which is highly addictive. Nicotine exposure is particularly concerning for adolescents because the brain is still developing. Vaping aerosols can also contain substances that irritate the lungs.</p>
+                    <div class="example-box">
+                        <div class="example-label">🇲🇾 Malaysian Example</div>
+                        <p>A student starts vaping because friends say it is fashionable. If the product contains nicotine, repeated use can lead to dependence — making it difficult to concentrate on studies and spending money meant for meals or books.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disadvantage 2 -->
+            <div class="disadvantage-block" id="dis2">
+                <div class="disadvantage-visual">
+                    <div class="visual-placeholder visual-finance">
+                        <span class="visual-emoji">💸</span>
+                        <span class="visual-label">Financial Burden</span>
+                    </div>
+                </div>
+                <div class="disadvantage-text">
+                    <div class="dis-number">2</div>
+                    <h3>Financial Burden on Individuals &amp; Families</h3>
+                    <p>A seemingly small daily expense can grow into a massive annual cost. At <strong>RM15 per day</strong>, spending adds up to <strong>RM450/month</strong> or <strong>RM5,475/year</strong>. That money could go towards food, education, transport, or savings.</p>
+                    <p>There are also <strong>indirect costs</strong> — medical expenses, time away from work, reduced income, and the burden on family members who must provide care.</p>
+                    <div class="example-box">
+                        <div class="example-label">🇲🇾 Malaysian Example</div>
+                        <p>For a Malaysian household, RM450 a month could pay utility bills, buy groceries, or cover school expenses. A young person spending pocket money on vaping may have less left for lunch, books, or transport — creating unnecessary financial pressure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disadvantage 3 -->
+            <div class="disadvantage-block" id="dis3">
+                <div class="disadvantage-visual">
+                    <div class="visual-placeholder visual-community">
+                        <span class="visual-emoji">👨‍👩‍👧‍👦</span>
+                        <span class="visual-label">Community Impact</span>
+                    </div>
+                </div>
+                <div class="disadvantage-text">
+                    <div class="dis-number">3</div>
+                    <h3>Harm to Other People &amp; the Community</h3>
+                    <p><strong>Second-hand smoke</strong> contains harmful substances and affects non-smokers — especially children, the elderly, pregnant women, and people with breathing conditions. Vape aerosol is not clean air either; bystanders may inhale nicotine and other substances.</p>
+                    <p>Cigarette butts and vape devices also create <strong>environmental waste</strong>. Filters don't break down easily, and discarded devices contain batteries and electronic components.</p>
+                    <div class="example-box">
+                        <div class="example-label">🇲🇾 Malaysian Example</div>
+                        <p>In an apartment in Kuala Lumpur or Kuching, smoke from a balcony drifts into neighbouring homes. At parks and beaches, cigarette butts and vape waste litter shared spaces — affecting families, tourists, and the environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INTERACTIVE COST CALCULATOR ===== -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Interactive Tool</div>
+                <h2>Cost Calculator</h2>
+                <p>See how much money goes up in smoke</p>
+            </div>
+            <div class="calculator-wrapper fade-in">
+                <h3>💰 How Much Are You Spending?</h3>
+                <p class="calc-subtitle">Adjust the slider to see your potential savings</p>
+
+                <div class="slider-group">
+                    <label>Daily Spending: <span id="dailyDisplay">RM 15</span></label>
+                    <input type="range" id="dailySlider" min="5" max="50" value="15" oninput="updateCalculator()">
+                </div>
+
+                <div class="calc-results">
+                    <div class="calc-result-item">
+                        <div class="period">Monthly</div>
+                        <div class="amount" id="monthlyResult">RM 450</div>
+                    </div>
+                    <div class="calc-result-item">
+                        <div class="period">Yearly</div>
+                        <div class="amount" id="yearlyResult">RM 5,475</div>
+                    </div>
+                    <div class="calc-result-item">
+                        <div class="period">5 Years</div>
+                        <div class="amount" id="fiveYearResult">RM 27,375</div>
+                    </div>
+                </div>
+
+                <div class="calc-could-buy">
+                    <div class="label">💡 Instead, You Could</div>
+                    <div class="items" id="couldBuyText">Buy a laptop, pay 12 months of utility bills, or fund 2 semesters of textbooks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KEY FACTS ===== -->
+    <section class="facts-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Did You Know?</div>
+                <h2>Key Facts</h2>
+                <p>Scroll through these important facts ➜</p>
+            </div>
+            <div class="facts-track">
+                <div class="fact-card">
+                    <div class="fact-icon">☠️</div>
+                    <h4>Leading Cause of Preventable Death</h4>
+                    <p>Tobacco kills more than 8 million people each year, including 1.2 million non-smokers exposed to second-hand smoke.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🧪</div>
+                    <h4>Not Just Water Vapour</h4>
+                    <p>Vape aerosol can contain nicotine, fine particles, flavouring chemicals, and other potentially harmful substances. It is not harmless.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🧠</div>
+                    <h4>Youth Brain at Risk</h4>
+                    <p>Nicotine exposure is especially harmful for adolescents because the brain continues developing until around age 25.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🏥</div>
+                    <h4>Hidden Medical Costs</h4>
+                    <p>Smoking-related illnesses lead to medical expenses, time off work, reduced income, and caregiving burdens on family members.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🌍</div>
+                    <h4>Environmental Pollution</h4>
+                    <p>Cigarette filters are one of the most littered items globally. Vape devices add electronic waste with batteries and chemicals.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">👶</div>
+                    <h4>Children Are Vulnerable</h4>
+                    <p>Children exposed to second-hand smoke face increased risks of respiratory infections, asthma, and ear infections.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🔗</div>
+                    <h4>Addiction Traps</h4>
+                    <p>Nicotine creates strong dependence. Users feel intense cravings and find it extremely difficult to stop once addicted.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONCLUSION ===== -->
+    <section class="conclusion-section">
+        <div class="conclusion-content fade-in">
+            <div class="conclusion-icon">🛡️</div>
+            <h2>Make the Informed Choice</h2>
+            <p>Smoking is strongly linked to serious diseases. Vaping is not harmless and can expose users to nicotine and other potentially harmful substances.</p>
+            <p>As members of society, we should make informed decisions, avoid starting these habits, support those who want to stop, and respect shared spaces.</p>
+            <div class="key-message">
+                "The consequences of smoking and vaping are not limited to the user. They can affect health, family finances, and the community as a whole."
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUICK REFERENCE TABLE ===== -->
+    <section class="table-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">Summary</div>
+                <h2>Quick Reference</h2>
+            </div>
+            <table class="reference-table fade-in">
+                <thead>
+                    <tr>
+                        <th>Disadvantage</th>
+                        <th>Key Points</th>
+                        <th>Malaysian Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>🫁 Health &amp; Addiction</strong></td>
+                        <td>Smoking increases the risk of cancer, heart disease, and lung disease. Vaping can expose users to nicotine and other potentially harmful substances.</td>
+                        <td>A student may develop nicotine dependence after starting to vape socially.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>💸 Financial Burden</strong></td>
+                        <td>Frequent purchases accumulate; illness can also create indirect costs.</td>
+                        <td>RM15 per day amounts to RM450 per month or RM5,475 per year.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>👨‍👩‍👧‍👦 Effects on Others</strong></td>
+                        <td>Second-hand smoke, exposure to vape aerosol, litter and electronic waste.</td>
+                        <td>Smoke drifting into neighbouring apartments or cigarette butts littering parks and beaches.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== SOURCES ===== -->
+    <section class="sources-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-tag">References</div>
+                <h2>Sources for Further Reading</h2>
+            </div>
+            <div class="sources-grid fade-in">
+                <a href="https://www.who.int/news-room/fact-sheets/detail/tobacco" target="_blank" class="source-link">
+                    <span class="source-icon">🏛️</span>
+                    <span class="source-name">WHO — Tobacco Fact Sheet</span>
+                </a>
+                <a href="https://www.who.int/news-room/questions-and-answers/item/tobacco-e-cigarettes" target="_blank" class="source-link">
+                    <span class="source-icon">🏛️</span>
+                    <span class="source-name">WHO — E-Cigarettes Q&amp;A</span>
+                </a>
+                <a href="https://www.cdc.gov/tobacco/about/index.html" target="_blank" class="source-link">
+                    <span class="source-icon">🏥</span>
+                    <span class="source-name">CDC — Health Effects of Smoking</span>
+                </a>
+                <a href="https://www.cdc.gov/tobacco/e-cigarettes/" target="_blank" class="source-link">
+                    <span class="source-icon">🏥</span>
+                    <span class="source-name">CDC — About E-Cigarettes</span>
+                </a>
+                <a href="https://www.moh.gov.my/" target="_blank" class="source-link">
+                    <span class="source-icon">🇲🇾</span>
+                    <span class="source-name">Malaysia Ministry of Health</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT US ===== -->
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                <div class="section-tag">Get in Touch</div>
+                <h2>Contact Us</h2>
+                <p>Have questions or want to learn more? Reach out!</p>
+            </div>
+            <div class="contact-card fade-in">
+                <div class="contact-avatar-side">
+                    <div class="avatar-circle">👤</div>
+                    <h3>Chai Kian Shin</h3>
+                    <div class="role-tag">Student Researcher</div>
+                </div>
+                <div class="contact-details-side">
+                    <div class="contact-detail-item">
+                        <div class="detail-icon">👤</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Full Name</span>
+                            <span class="detail-value">Chai Kian Shin</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="detail-icon">📚</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Programme</span>
+                            <span class="detail-value">DOSH</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="detail-icon">🏫</div>
+                        <div class="detail-text">
+                            <span class="detail-label">University</span>
+                            <span class="detail-value">Cyberjaya College</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="detail-icon">📝</div>
+                        <div class="detail-text">
+                            <span class="detail-label">Project</span>
+                            <span class="detail-value">Practical IT Skill — Final Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 <span>Disadvantages of Smoking &amp; Vaping</span> — Chai Kian Shin | Cyberjaya College</p>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ---- Smoke particles ----
+        (function createSmoke() {
+            const container = document.getElementById('smokeContainer');
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.classList.add('smoke-particle');
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = (6 + Math.random() * 10) + 's';
+                p.style.animationDelay = (Math.random() * 10) + 's';
+                p.style.width = p.style.height = (3 + Math.random() * 5) + 'px';
+                container.appendChild(p);
+            }
+        })();
+
+        // ---- Mobile menu ----
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        // ---- Navbar shrink + active link ----
+        const navbar = document.getElementById('navbar');
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchors = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            // Shrink nav
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+
+            // Back-to-top
+            document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 500);
+
+            // Active link
+            let current = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
+            });
+            navAnchors.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('data-section') === current) a.classList.add('active');
+            });
+        });
+
+        // Close mobile menu on link click
+        navAnchors.forEach(a => a.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('open');
+        }));
+
+        // ---- Scroll animations ----
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in, .disadvantage-block').forEach(el => observer.observe(el));
+
+        // ---- Counter animation ----
+        function animateCounters() {
+            document.querySelectorAll('.stat-number').forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000;
+                const start = performance.now();
+
+                function update(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(eased * target);
+                    counter.textContent = current.toLocaleString();
+                    if (progress < 1) requestAnimationFrame(update);
+                    else counter.textContent = target.toLocaleString();
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelector('.stats-section') && statsObserver.observe(document.querySelector('.stats-section'));
+
+        // ---- Cost Calculator ----
+        function updateCalculator() {
+            const daily = parseInt(document.getElementById('dailySlider').value);
+            const monthly = daily * 30;
+            const yearly = daily * 365;
+            const fiveYear = yearly * 5;
+
+            document.getElementById('dailyDisplay').textContent = 'RM ' + daily;
+            document.getElementById('monthlyResult').textContent = 'RM ' + monthly.toLocaleString();
+            document.getElementById('yearlyResult').textContent = 'RM ' + yearly.toLocaleString();
+            document.getElementById('fiveYearResult').textContent = 'RM ' + fiveYear.toLocaleString();
+
+            // Dynamic "could buy" suggestions
+            const suggestions = [];
+            if (yearly >= 2000) suggestions.push('a smartphone');
+            if (yearly >= 3000) suggestions.push('a laptop');
+            if (yearly >= 1500) suggestions.push(Math.floor(yearly / 150) + ' months of utility bills');
+            if (yearly >= 500) suggestions.push(Math.floor(yearly / 50) + ' meals');
+            if (fiveYear >= 10000) suggestions.push('a used car (5 years)');
+
+            document.getElementById('couldBuyText').textContent = suggestions.length
+                ? 'Buy ' + suggestions.slice(0, 3).join(', ')
+                : 'Save that money for your future!';
+        }
+    </script>
+</body>
+</html>
